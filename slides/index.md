@@ -23,6 +23,12 @@
 
 ## Thank you!
 
-<img src="images/CIT-Circle.png" style="width: 200px;"/>
+<a href="https://compositional-it.com">
+    <img src="images/CIT-Circle.png" style="width: 200px;"/>
+</a>
 
 https://compositional-it.com
+
+[@isaac_abraham](http://twitter.com/isaac_abraham)
+
+[isaac@compositional-it.com](mailto:isaac@compositional-it.com)
