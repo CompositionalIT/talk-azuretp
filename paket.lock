@@ -2,7 +2,7 @@ REDIRECTS: FORCE
 RESTRICTION: == net452
 NUGET
   remote: https://www.nuget.org/api/v2
-    FAKE (4.63.2)
+    FAKE (4.28)
     FSharp.Azure.StorageTypeProvider (1.9.4)
       WindowsAzure.Storage (>= 7.2.1)
     FSharp.Compiler.Service (2.0.0.6)
