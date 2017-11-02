@@ -24,7 +24,7 @@ namespace CSharpApp
         static public void ExploreFile()
         {
             var file =
-                blobClient.GetContainerReference("filse")
+                blobClient.GetContainerReference("files")
                           .GetBlockBlobReference("pp-2016.csv");
 
             var contents =
