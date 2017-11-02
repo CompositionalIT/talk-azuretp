@@ -5,6 +5,6 @@ redirects:force
 
 nuget FsReveal
 nuget FAKE
-nuget Suave
+nuget Suave 1.1.2
 nuget FSharp.Azure.StorageTypeProvider
 nuget FSharp.Plotly

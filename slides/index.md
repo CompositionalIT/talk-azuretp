@@ -283,7 +283,7 @@ Distributed | cloud { }
 * Data Lake
 * etc. etc.
 
-***
+---
 
 ### Comparing SQL, Tables and Blobs
 
@@ -295,7 +295,7 @@ Distributed | cloud { }
 **Scalability** | Medium (*) | Medium/High | Medium/High
 **Performance** | Scalable | Fixed (*) | Fixed (*)
 
-***
+---
 
 ### Working with SQL Azure
 
@@ -309,7 +309,7 @@ Customer Id | Name | Order Count | Balance
 | bcf678fb-... | Sally Smith | 12 | 59.10
 | ad081c1b-... | ***{null}*** | 17 | 89.23
 
-***
+---
 
 ### Working with Azure Tables
 
@@ -323,7 +323,7 @@ Customer Id | Name | Order Count | Balance
     { CustomerId = 123; Name = "Sally"; OrderCount = 12; Balance = 59.10 }
     { CustomerId = 123; OrderCount = 12; Balance = 59.10; City = "New York" }
 
-***
+---
 
 Customer Id | Name | Order Count | Balance | **City**
 | --- | --- | --- | ---| --- 
@@ -331,7 +331,7 @@ Customer Id | Name | Order Count | Balance | **City**
 | **123** | Sally Smith | 12 | 59.10 | ***{N/A}***
 | ad081c1b-... | ***{N/A}*** | 17 | 89.23 | **New York** 
 
-***
+---
 
 ## Blob Type System
 
@@ -344,7 +344,7 @@ Customer Id | Name | Order Count | Balance | **City**
           "name" : "Joe Bloggs"
           "orderCount" : 23 }
 
-***
+---
 
 ### Compute on Azure data services
 
@@ -358,13 +358,19 @@ Customer Id | Name | Order Count | Balance | **City**
 
 ***
 
+### DEVELOPERS!
+
+![](images/developers.jpg)
+
+---
+
 ### Problems with Azure Storage SDK
 
 * Not geared up for exploration
 * Impedence mismatch of type system and services
 * Does not lead to pit of success
 
-***
+---
 
 ### Typical tasks:
 
@@ -377,11 +383,11 @@ Customer Id | Name | Order Count | Balance | **City**
 ### Question:
 ### How can we use F# to improve this?
 
-***
+---
 
 ![](images/bored.jpg)
 
-***
+---
 
 # DEMOS!!
 
