@@ -20,7 +20,7 @@
 
 ---
 
-Other metadata...
+### Other metadata...
 
 * .NET dev / contractor / consultant since .NET 1.0
 * Using F# for ~5 years
@@ -65,7 +65,7 @@ Other metadata...
 | Side-effects and statements | Expressions
 | Classes | Functions as values
 | Inheritance | Composition
-| State | Pure functions
+| State | Separate data & functions
 | Polymorphism | Algebraic Data Types
 
 ---
@@ -319,9 +319,11 @@ Customer Id | Name | Order Count | Balance
 * Implicit nullability "support"
 
 
-    { CustomerId = "2542685a"; Name = "Joe"; OrderCount = 23 }
-    { CustomerId = 123; Name = "Sally"; OrderCount = 12; Balance = 59.10 }
-    { CustomerId = 123; OrderCount = 12; Balance = 59.10; City = "New York" }
+```fsharp
+{ CustomerId = "2542685a"; Name = "Joe"; OrderCount = 23 }
+{ CustomerId = 123; Name = "Sally"; OrderCount = 12; Balance = 59.10 }
+{ CustomerId = 123; OrderCount = 12; Balance = 59.10; City = "New York" }
+```
 
 ---
 
@@ -339,11 +341,11 @@ Customer Id | Name | Order Count | Balance | **City**
 * No notion of rows / columns
 * Data stored as raw documents *e.g.*
 
-
+```json
         { "customerId" : "2542685a-"
           "name" : "Joe Bloggs"
           "orderCount" : 23 }
-
+```
 ---
 
 ### Compute on Azure data services
