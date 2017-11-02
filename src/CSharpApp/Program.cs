@@ -69,7 +69,6 @@ namespace CSharpApp
             var properties = table.ExecuteQuery(badQuery).ToArray();
             foreach (var prop in properties)
                 Console.WriteLine($"{prop.Date.Date}: {prop.Region}, {prop.County} - {prop.Price}");
-                // What about Town?
         }
 
         public static void IQueryableQuery()
@@ -79,8 +78,9 @@ namespace CSharpApp
                 where txn.PostCode.StartsWith("WD6")
                 select txn;
 
-            foreach (var prop in naughtyQuery)
+            foreach (var prop in naughtyQuery.Take(10))
                 Console.WriteLine($"{prop.Date.Date}: {prop.Region}, {prop.County} - {prop.Price}");
+                // What about Town?
         }
     }
 
