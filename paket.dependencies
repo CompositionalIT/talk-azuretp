@@ -1,5 +1,10 @@
 source https://www.nuget.org/api/v2
 
+framework:net452
+redirects:force
+
 nuget FsReveal
 nuget FAKE
 nuget Suave
+nuget FSharp.Azure.StorageTypeProvider
+nuget FSharp.Plotly

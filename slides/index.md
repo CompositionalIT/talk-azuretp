@@ -366,6 +366,14 @@ Customer Id | Name | Order Count | Balance | **City**
 
 ***
 
+### Typical tasks:
+
+* What's in my storage account?
+* What does this file look like inside?
+* What's the schema of this table?
+* What does the data in my table look like?
+* What's currently on the queue?
+
 ### Question:
 ### How can we use F# to improve this?
 
