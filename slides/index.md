@@ -378,10 +378,12 @@ Customer Id | Name | Order Count | Balance | **City**
 * What does this file look like inside?
 * What's the schema of this table?
 * What does the data in my table look like?
-* What's currently on the queue?
+* What's currently on a storage queue?
 
-### Question:
-### How can we use F# to improve this?
+---
+
+## Question:
+### How can F# to improve this?
 
 ---
 
@@ -404,17 +406,17 @@ Customer Id | Name | Order Count | Balance | **City**
 * Working with "well-know" blob schemas
 * Can always "fall back" to standard Azure SDK
 
-***
+---
 
 ## Storage Accounts cost money!
 
 * **Every** query costs
     * **Every** time you dot into something, it costs!
 * Use the Storage Emulator
-* Use dummy data locally to "script" the schema you want to work with
+* Use pre-defined "dummy data", or schema files, to specify your types
 * Repoint to live storage account at runtime
 
-***
+---
 
 ## Developing Type Providers
 
@@ -424,14 +426,15 @@ Customer Id | Name | Order Count | Balance | **City**
 * Running 2 IDEs side-by-side
 * Slow to develop
 * Dependencies are difficult to work with
+* .NET Core compatibility **very close**!
 
-***
+---
 
 ## Build and CI
 
 ![](images/storage-tp-build.png)
 
-***
+---
 
 ## Building and Testing
 
@@ -439,14 +442,15 @@ Customer Id | Name | Order Count | Balance | **City**
     * Need to have the emulator running locally!
 * Suite of integration tests on CI
 * Appveyor for build
-    * Appveyor support Azure Storage Emulator :)
+    * Appveyor supports Azure Storage Emulator :)
 
-***
+---
 
+## Shameless plug alert!
 
-## Founder of Compositional IT
-
-<img src="images/CIT-Horizontal.png" style="width: 700px;"/>
+<a href="https://www.manning.com/books/get-programming-with-f-sharp">
+    <img src="images/get-programming.jpg">
+</a>
 
 ***
 
