@@ -38,7 +38,7 @@ type StorageAccount = AzureTypeProvider<"UseDevelopmentStorage=true">
 
 
 // Analysis with charts
-
+//
 //open FSharp.Plotly
 //
 //let transactions =
@@ -50,7 +50,7 @@ type StorageAccount = AzureTypeProvider<"UseDevelopmentStorage=true">
 //let labels, values =
 //    transactions
 //    |> Array.groupBy(fun r -> r.County)
-//    |> Array.map(fun (county, values) -> county, values |> Array.sumBy(fun v -> v.Price))
+//    |> Array.map(fun (county, values) -> county, values |> Array.averageBy(fun v -> float v.Price))
 //    |> Array.sortByDescending snd
 //    |> Array.take 10
 //    |> Array.unzip
