@@ -82,19 +82,18 @@ namespace CSharpApp
             foreach (var prop in naughtyQuery)
                 Console.WriteLine($"{prop.Date.Date}: {prop.Region}, {prop.County} - {prop.Price}");
         }
+    }
 
-
-        class Program
+    class Program
+    {
+        static void Main(string[] args)
         {
-            static void Main(string[] args)
-            {
-                //Blobs.ExploreStorageAccount();
-                //Blobs.ExploreFile();
+            //Blobs.ExploreStorageAccount();
+            //Blobs.ExploreFile();
 
-                //Tables.BasicQuery();
-                //Tables.BadQuery();
-                //Tables.IQueryableQuery();
-            }
+            //Tables.BasicQuery();
+            //Tables.BadQuery();
+            //Tables.IQueryableQuery();
         }
     }
 }

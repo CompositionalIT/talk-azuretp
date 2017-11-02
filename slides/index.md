@@ -1,6 +1,6 @@
-- title : Compositional IT talk
-- description : Template for CIT talk
-- author : CIT Person
+- title : Taming Types in the Cloud
+- description : Azure and F# with Type Providers
+- author : Isaac Abraham
 - theme : night
 - transition : default
 
@@ -14,7 +14,7 @@
 
 ---
 
-## I'm Isaac Abraham!
+### I'm Isaac Abraham!
 
 ![](images/isaac.jpg)
 
@@ -29,13 +29,13 @@
 
 ---
 
-## I also make infamous PRs...
+### I also make infamous PRs...
 
 ![](images/nugate.png)
 
 ---
 
-## What about you?
+### What about you?
 
 ***
 
@@ -98,15 +98,15 @@ let text = helloWorld "isaac"
 open System
 
 // Tuples are first class citizens in F#
-let person = Tuple.Create("Isaac", 36)
-let personShortHand = "isaac", 36 // string * int
+let person = Tuple.Create("Isaac", 37)
+let personShortHand = "isaac", 37 // string * int
 let name, age = personShortHand // decompose the tuple 
 
 // Declaring a record
 type Person = { Name : string; Age : int }
 
 // Create an instance
-let me = { Name = "Isaac"; Age = 36 }
+let me = { Name = "Isaac"; Age = 37 }
 printfn "%s is %d years old" me.Name me.Age
 ```
 ---
@@ -114,21 +114,28 @@ printfn "%s is %d years old" me.Name me.Age
 ### More Types
 
 ```fsharp
+open FSharp.Data.UnitSystems.SI.UnitSymbols
+
 type Direction = North | South | East | West
 type Weather =
-    | Cold of temperatureC:float
+    | Cold of temperature:float<C>
     | Sunny
     | Wet
-    | Windy of Direction * windspeed:float
+    | Windy of Direction * windspeed:float<m/s>
 
 // Create a weather value
-let weather = Windy(North, 10.2)
+let weather = Windy(North, 10.2<m/s>)
 
 let (|Low|Medium|High|) speed =
-    if speed > 10. then High elif speed > 5. then Medium else Low
+    if speed > 10.<m/s> then High elif speed > 5<m/s>. then Medium else Low
+```
+---
 
+### Powerful Pattern matching
+
+```fsharp
 match weather with
-| Cold temp when temp < 2.0 -> "Really cold!"
+| Cold temp when temp < 2.0<C> -> "Really cold!"
 | Cold _ | Wet -> "Miserable weather!"
 | Sunny -> "Nice weather"
 | Windy (North, High) -> "High speed northernly wind!"
@@ -246,7 +253,7 @@ y <- 20 // ok
 
 ---
 
-## F# runs on .NET!
+### F# runs on .NET!
 
 ---
 
@@ -264,7 +271,7 @@ Distributed | cloud { }
 
 ---
 
-## Azure Storage
+### Azure Storage
 
 ![](images/azure-storage.jpg)
 
@@ -316,8 +323,10 @@ Customer Id | Name | Order Count | Balance
 * *Row*-level schema
 * Type checking
 * No max length etc.
-* Implicit nullability "support"
+* All columns are nullable
 
+<br>
+<br>
 
 ```fsharp
 { CustomerId = "2542685a"; Name = "Joe"; OrderCount = 23 }
@@ -335,15 +344,18 @@ Customer Id | Name | Order Count | Balance | **City**
 
 ---
 
-## Blob Type System
+### Blob Type System
 
 * *No* schema
 * No notion of rows / columns
 * Data stored as raw documents *e.g.*
 
+<br>
+<br>
+
 ```json
-        { "customerId" : "2542685a-"
-          "name" : "Joe Bloggs"
+        { "customerId" : "2542685a-",
+          "name" : "Joe Bloggs",
           "orderCount" : 23 }
 ```
 ---
@@ -360,7 +372,7 @@ Customer Id | Name | Order Count | Balance | **City**
 
 ***
 
-### DEVELOPERS!
+## DEVELOPERS!
 
 ![](images/developers.jpg)
 
@@ -384,8 +396,8 @@ Customer Id | Name | Order Count | Balance | **City**
 
 ---
 
-## Question:
-### How can F# to improve this?
+### Question:
+### How can F# improve this?
 
 ---
 
@@ -394,6 +406,18 @@ Customer Id | Name | Order Count | Balance | **City**
 ---
 
 # DEMOS!!
+
+---
+
+### Benefits F# for data
+
+| | Before | After
+|-|:-:|:-:|
+| **Missing data** | Null | Option<T> |
+| **Error Handling** | Exceptions | Result<T> |
+| **Remote resources** | Stringly-typed | Type system |
+| **Schema** | Manually generated | Provided |
+| **Compile-time Queries** | Unsafe | Safe |
 
 ***
 
@@ -414,9 +438,10 @@ Customer Id | Name | Order Count | Balance | **City**
 
 * **Every** query costs
     * **Every** time you dot into something, it costs!
+* Use schema files to specify your types
+    * Or use preset "dummy data" to guide provided types
 * Use the Storage Emulator
-* Use pre-defined "dummy data", or schema files, to specify your types
-* Repoint to live storage account at runtime
+    * Repoint to live storage account at runtime
 
 ---
 
