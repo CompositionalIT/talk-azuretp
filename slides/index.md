@@ -26,6 +26,13 @@
 * Using F# for ~5 years
 * Microsoft MVP (F# -> .NET -> Visual Studio -> ?)
 * Based in Fulda, Germany (and occasionally London, UK)
+* Founder of Compositional IT
+
+<br><br><br>
+
+<a href="https://compositional-it.com">
+    <img src="images/CIT-Circle.png" style="width: 200px;"/>
+</a>
 
 ---
 
@@ -131,7 +138,7 @@ let (|Low|Medium|High|) speed =
 ```
 ---
 
-### Powerful Pattern matching
+### Exhaustive pattern matching
 
 ```fsharp
 match weather with
@@ -237,11 +244,13 @@ y <- 20 // ok
 
 ---
 
-## Azure and F#?
+### Azure and F#?
 
-![alt](images/suspicious.png)
+![alt](images/Suspicious.png)
 
 ---
+
+### Azure and F#!
 
 ![](images/friends.jpg)
 
@@ -258,7 +267,7 @@ y <- 20 // ok
 ---
 
 | Cloud Applications | F# |
-|---:|:---|
+|:---:|:---:|
 Stateless | Immutable, Expressions
 Data-centric | Type Providers, Pattern Matching
 Fault tolerant | Powerful type system
@@ -409,7 +418,7 @@ Customer Id | Name | Order Count | Balance | **City**
 
 ---
 
-### Benefits F# for data
+### Benefits of F# for data
 
 | | Before | After
 |-|:-:|:-:|
