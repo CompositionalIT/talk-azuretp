@@ -199,3 +199,4 @@ obj/
 [Tt]est[Rr]esult*
 .vs/
 #Nuget packages folder
+/.paket/load/

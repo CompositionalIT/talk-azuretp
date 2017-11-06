@@ -41,11 +41,12 @@ namespace CSharpApp
     class Transaction : TableEntity
     {
         public int Price { get; set; }
-        public DateTime Date { get; set; }
+        public DateTime SaleDate { get; set; }
         public string PostCode { get; set; } 
         public string PropertyType { get; set; }
+        public string Locality { get; set; }
         public string Town { get; set; }
-        public string Region { get; set; }
+        public string District { get; set; }
         public string County { get; set; }
     }
 
@@ -60,7 +61,7 @@ namespace CSharpApp
             var theQuery = new TableQuery<Transaction>().Take(10);
             var properties = table.ExecuteQuery(theQuery).ToArray();
             foreach(var prop in properties)
-                Console.WriteLine($"{prop.Date.Date}: {prop.Region}, {prop.County} - {prop.Price}");
+                Console.WriteLine($"{prop.SaleDate.Date}: {prop.District}, {prop.County} - {prop.Price}");
         }
 
         public static void BadQuery()
@@ -68,7 +69,7 @@ namespace CSharpApp
             var badQuery = table.CreateQuery<Transaction>().Take(10);
             var properties = table.ExecuteQuery(badQuery).ToArray();
             foreach (var prop in properties)
-                Console.WriteLine($"{prop.Date.Date}: {prop.Region}, {prop.County} - {prop.Price}");
+                Console.WriteLine($"{prop.SaleDate.Date}: {prop.District}, {prop.County} - {prop.Price}");
         }
 
         public static void IQueryableQuery()
@@ -79,8 +80,8 @@ namespace CSharpApp
                 select txn;
 
             foreach (var prop in naughtyQuery.Take(10))
-                Console.WriteLine($"{prop.Date.Date}: {prop.Region}, {prop.County} - {prop.Price}");
-                // What about Town?
+                Console.WriteLine($"{prop.SaleDate.Date}: {prop.District}, {prop.County} - {prop.Price}");
+                // What about Locality?
         }
     }
 

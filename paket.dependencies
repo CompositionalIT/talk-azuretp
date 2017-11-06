@@ -9,3 +9,4 @@ nuget Suave 1.1.2
 nuget FSharp.Azure.StorageTypeProvider
 nuget FSharp.Plotly
 nuget FSharp.Core 4.0.0.1
+nuget FSharp.Data
