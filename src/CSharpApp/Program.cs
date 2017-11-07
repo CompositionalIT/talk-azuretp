@@ -15,17 +15,17 @@ namespace CSharpApp
         {
             var containers = blobClient.ListContainers();
             foreach (var container in containers)
-                Console.WriteLine("Container {0}", container.Name);
+            {
+                Console.WriteLine("Container {0}:", container.Name);
 
-            foreach (var blob in containers.First().ListBlobs())
-                Console.WriteLine("Blob {0}", blob.Uri.ToString());
+                foreach (var blob in container.ListBlobs(useFlatBlobListing:true))
+                    Console.WriteLine("\t\tBlob {0}", blob.Uri.ToString());
+            }
         }
 
         static public void ExploreFile()
         {
-            var file =
-                blobClient.GetContainerReference("files")
-                          .GetBlockBlobReference("pp-2016.csv");
+            var file = blobClient.GetContainerReference("filse").GetBlockBlobReference("pp-2016.csv");
 
             var contents =
                 file.DownloadText()
@@ -52,24 +52,34 @@ namespace CSharpApp
 
     static class Tables
     {
-        static CloudStorageAccount account = CloudStorageAccount.Parse("UseDevelopmentStorage=true");
-        static CloudTableClient tableClient = account.CreateCloudTableClient();
-        static CloudTable table = tableClient.GetTableReference("transactions");
+        static CloudTable table = CloudStorageAccount.Parse("UseDevelopmentStorage=true")
+                                                     .CreateCloudTableClient()
+                                                     .GetTableReference("transactions");
+
+        private static void PrintTransaction(Transaction prop)
+        {
+            Console.WriteLine("{0}: {1}, {2} - {3}",
+                    prop.SaleDate.Date,
+                    prop.District,
+                    prop.County,
+                    prop.Price);
+        }
 
         public static void BasicQuery()
         {
             var theQuery = new TableQuery<Transaction>().Take(10);
             var properties = table.ExecuteQuery(theQuery).ToArray();
-            foreach(var prop in properties)
-                Console.WriteLine($"{prop.SaleDate.Date}: {prop.District}, {prop.County} - {prop.Price}");
+            foreach (var prop in properties)
+                PrintTransaction(prop);
         }
+
 
         public static void BadQuery()
         {
             var badQuery = table.CreateQuery<Transaction>().Take(10);
             var properties = table.ExecuteQuery(badQuery).ToArray();
             foreach (var prop in properties)
-                Console.WriteLine($"{prop.SaleDate.Date}: {prop.District}, {prop.County} - {prop.Price}");
+                PrintTransaction(prop);
         }
 
         public static void IQueryableQuery()
@@ -80,8 +90,7 @@ namespace CSharpApp
                 select txn;
 
             foreach (var prop in naughtyQuery.Take(10))
-                Console.WriteLine($"{prop.SaleDate.Date}: {prop.District}, {prop.County} - {prop.Price}");
-                // What about Locality?
+                PrintTransaction(prop);
         }
     }
 
@@ -94,7 +103,7 @@ namespace CSharpApp
 
             //Tables.BasicQuery();
             //Tables.BadQuery();
-            //Tables.IQueryableQuery();
+            Tables.IQueryableQuery();
         }
     }
 }

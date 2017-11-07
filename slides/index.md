@@ -387,21 +387,111 @@ Customer Id | Name | Order Count | Balance | **City**
 
 ---
 
-### Problems with Azure Storage SDK
-
-* Not geared up for exploration
-* Impedence mismatch of type system and services
-* Does not lead to pit of success
-
----
-
 ### Typical tasks:
 
 * What's in my storage account?
-* What does this file look like inside?
+* What do the contents of this file look like?
 * What's the schema of this table?
 * What does the data in my table look like?
 * What's currently on a storage queue?
+
+---
+
+## Working with the Azure Storage SDK
+
+---
+
+## Working with Blobs
+
+---
+
+### Exploration of data?
+
+---
+
+![](images/sdk-1.png)
+
+---
+
+![](images/sdk-2.png)
+
+---
+
+### Type safety?
+
+![](images/sdk-3.png)
+
+---
+
+![](images/sdk-4.png)
+
+---
+
+![](images/sdk-5.png)
+
+---
+
+![](images/sdk-6.png)
+
+---
+
+## Working with Tables
+
+---
+
+### Type Safety?
+
+---
+
+![](images/sdk-7.png)
+
+---
+
+![](images/sdk-8.png)
+
+---
+
+![](images/sdk-9.png)
+
+---
+
+![](images/sdk-10.png)
+
+---
+
+![](images/sdk-11.png)
+
+---
+
+### The Pit of Success?
+
+![](images/sdk-12.png)
+
+---
+
+![](images/sdk-13.png)
+
+---
+
+![](images/sdk-14.png)
+
+---
+
+![](images/wtf.jpg)
+
+---
+
+### Impedence mismatches
+
+![](images/sdk-15.png)
+
+---
+
+![](images/sdk-16.png)
+
+---
+
+![](images/wtf.jpg)
 
 ---
 
