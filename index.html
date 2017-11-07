@@ -399,14 +399,6 @@
 <li>Converts quickly to full-blown assemblies</li>
 </ul>
 </section>
-<section >
-<h3>Also....</h3>
-<ul>
-<li>Type Inference <em>everywhere</em></li>
-<li>Expressions <em>everywhere</em></li>
-<li><strong>Type Providers</strong></li>
-</ul>
-</section>
 </section>
 <section >
 <section >
@@ -505,14 +497,13 @@
 </ul>
 </section>
 <section >
-<h3>Comparing SQL, Tables and Blobs</h3>
+<h3>Comparing SQL and Storage</h3>
 <table>
 <thead>
 <tr class="header">
 <th align="right"></th>
 <th align="center"><p>SQL Azure</p></th>
-<th align="center"><p>Tables</p></th>
-<th align="center"><p>Blobs</p></th>
+<th align="center"><p>Azure Storage</p></th>
 </tr>
 </thead>
 <tbody>
@@ -520,30 +511,25 @@
 <td align="right"><p><strong>Type System</strong></p></td>
 <td align="center"><p>Strong</p></td>
 <td align="center"><p>Weak</p></td>
-<td align="center"><p>Weaker</p></td>
 </tr>
 <tr class="even">
 <td align="right"><p><strong>Query Language</strong></p></td>
 <td align="center"><p>Smart</p></td>
 <td align="center"><p>Dumb</p></td>
-<td align="center"><p>Dumber</p></td>
 </tr>
 <tr class="odd">
 <td align="right"><p><strong>Cost</strong></p></td>
 <td align="center"><p>High</p></td>
-<td align="center"><p>Low</p></td>
 <td align="center"><p>Low</p></td>
 </tr>
 <tr class="even">
 <td align="right"><p><strong>Scalability</strong></p></td>
 <td align="center"><p>Medium (*)</p></td>
 <td align="center"><p>Medium/High</p></td>
-<td align="center"><p>Medium/High</p></td>
 </tr>
 <tr class="odd">
 <td align="right"><p><strong>Performance</strong></p></td>
 <td align="center"><p>Scalable</p></td>
-<td align="center"><p>Fixed (*)</p></td>
 <td align="center"><p>Fixed (*)</p></td>
 </tr>
 </tbody>
@@ -567,10 +553,10 @@
 </thead>
 <tbody>
 <tr class="odd">
-<td><p><code>GUID</code></p></td>
-<td><p><code>string 50 null</code></p></td>
-<td><p><code>int</code></p></td>
-<td><p><code>decimal</code></p></td>
+<td><p><em>guid</em></p></td>
+<td><p><em>string 50 null</em></p></td>
+<td><p><em>int</em></p></td>
+<td><p><em>decimal</em></p></td>
 </tr>
 <tr class="even">
 <td><p>2542685a-...</p></td>
@@ -598,24 +584,9 @@
 <h3>Working with Azure Tables</h3>
 <ul>
 <li><em>Row</em>-level schema</li>
-<li>Type checking</li>
 <li>No max length etc.</li>
 <li>All columns are nullable</li>
 </ul>
-<br>
-<br>
-<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
-<span class="l">2: </span>
-<span class="l">3: </span>
-</pre></td>
-<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp">{ <span class="i">CustomerId</span> <span class="o">=</span> <span class="s">&quot;2542685a&quot;</span>; <span class="i">Name</span> <span class="o">=</span> <span class="s">&quot;Joe&quot;</span>; <span class="i">OrderCount</span> <span class="o">=</span> <span class="n">23</span> }
-{ <span class="i">CustomerId</span> <span class="o">=</span> <span class="n">123</span>; <span class="i">Name</span> <span class="o">=</span> <span class="s">&quot;Sally&quot;</span>; <span class="i">OrderCount</span> <span class="o">=</span> <span class="n">12</span>; <span class="i">Balance</span> <span class="o">=</span> <span class="n">59.10</span> }
-{ <span class="i">CustomerId</span> <span class="o">=</span> <span class="n">123</span>; <span class="i">OrderCount</span> <span class="o">=</span> <span class="n">12</span>; <span class="i">Balance</span> <span class="o">=</span> <span class="n">59.10</span>; <span class="i">City</span> <span class="o">=</span> <span class="s">&quot;New York&quot;</span> }
-</code></pre></td>
-</tr>
-</table>
-</section>
-<section >
 <table>
 <thead>
 <tr class="header">
@@ -623,7 +594,6 @@
 <th><p>Name</p></th>
 <th><p>Order Count</p></th>
 <th><p>Balance</p></th>
-<th><p><strong>City</strong></p></th>
 </tr>
 </thead>
 <tbody>
@@ -632,32 +602,41 @@
 <td><p>Joe Bloggs</p></td>
 <td><p>23</p></td>
 <td><p><strong><em>{N/A}</em></strong></p></td>
-<td><p><strong><em>{N/A}</em></strong></p></td>
 </tr>
 <tr class="even">
 <td><p><strong>123</strong></p></td>
 <td><p>Sally Smith</p></td>
 <td><p>12</p></td>
 <td><p>59.10</p></td>
-<td><p><strong><em>{N/A}</em></strong></p></td>
 </tr>
 <tr class="odd">
 <td><p>ad081c1b-...</p></td>
 <td><p><strong><em>{N/A}</em></strong></p></td>
 <td><p>17</p></td>
 <td><p>89.23</p></td>
-<td><p><strong>New York</strong></p></td>
 </tr>
 </tbody>
 </table>
 
 </section>
 <section >
+<table class="pre"><tr><td class="lines"><pre class="fssnip"><span class="l">1: </span>
+<span class="l">2: </span>
+<span class="l">3: </span>
+</pre></td>
+<td class="snippet"><pre class="fssnip highlighted"><code lang="fsharp">{ <span class="i">CustomerId</span> <span class="o">=</span> <span class="s">&quot;2542685a&quot;</span>; <span class="i">Name</span> <span class="o">=</span> <span class="s">&quot;Joe&quot;</span>; <span class="i">OrderCount</span> <span class="o">=</span> <span class="n">23</span> }
+{ <span class="i">CustomerId</span> <span class="o">=</span> <span class="n">123</span>; <span class="i">Name</span> <span class="o">=</span> <span class="s">&quot;Sally&quot;</span>; <span class="i">OrderCount</span> <span class="o">=</span> <span class="n">12</span>; <span class="i">Balance</span> <span class="o">=</span> <span class="n">59.10</span> }
+{ <span class="i">CustomerId</span> <span class="o">=</span> <span class="n">123</span>; <span class="i">OrderCount</span> <span class="o">=</span> <span class="n">12</span>; <span class="i">Balance</span> <span class="o">=</span> <span class="n">59.10</span> }
+</code></pre></td>
+</tr>
+</table>
+</section>
+<section >
 <h3>Blob Type System</h3>
 <ul>
-<li><em>No</em> schema</li>
-<li>No notion of rows / columns</li>
-<li>Data stored as raw documents <em>e.g.</em></li>
+<li><em>No</em> entity schema</li>
+<li>No notion of rows or columns</li>
+<li>Data stored as raw documents in a path <em>e.g.</em></li>
 </ul>
 <br>
 <br>
