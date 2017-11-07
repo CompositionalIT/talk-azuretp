@@ -211,14 +211,6 @@ y <- 20 // ok
 * Explore domain quickly
 * Converts quickly to full-blown assemblies
 
----
-
-### Also....
-
-* Type Inference *everywhere*
-* Expressions *everywhere*
-* **Type Providers**
-
 ***
 
 ![](images/azure.png)
@@ -301,15 +293,15 @@ Distributed | cloud { }
 
 ---
 
-### Comparing SQL, Tables and Blobs
+### Comparing SQL and Storage
 
-| | SQL Azure | Tables | Blobs |
-|---:|:---:|:---:|:---:|
-**Type System** | Strong | Weak | Weaker
-**Query Language** | Smart | Dumb | Dumber  
-**Cost** | High | Low | Low
-**Scalability** | Medium (*) | Medium/High | Medium/High
-**Performance** | Scalable | Fixed (*) | Fixed (*)
+| | SQL Azure | Azure Storage |
+|---:|:---:|:---:|
+**Type System** | Strong | Weak
+**Query Language** | Smart | Dumb
+**Cost** | High | Low 
+**Scalability** | Medium (*) | Medium/High
+**Performance** | Scalable | Fixed (*)
 
 ---
 
@@ -320,7 +312,7 @@ Distributed | cloud { }
 
 Customer Id | Name | Order Count | Balance
 | --- | --- | --- | ---|
-| `GUID` | `string 50 null` | `int` | `decimal` |
+| *guid* | *string 50 null* | *int* | *decimal* |
 | 2542685a-... | Joe Bloggs | 23 | 126.23
 | bcf678fb-... | Sally Smith | 12 | 59.10
 | ad081c1b-... | ***{null}*** | 17 | 89.23
@@ -330,34 +322,29 @@ Customer Id | Name | Order Count | Balance
 ### Working with Azure Tables
 
 * *Row*-level schema
-* Type checking
 * No max length etc.
 * All columns are nullable
 
-<br>
-<br>
+| Customer Id | Name | Order Count | Balance |
+| --- | --- | --- | --- |
+| 2542685a-... | Joe Bloggs | 23 | ***{N/A}***
+| **123** | Sally Smith | 12 | 59.10
+| ad081c1b-... | ***{N/A}*** | 17 | 89.23
+
+---
 
 ```fsharp
 { CustomerId = "2542685a"; Name = "Joe"; OrderCount = 23 }
 { CustomerId = 123; Name = "Sally"; OrderCount = 12; Balance = 59.10 }
-{ CustomerId = 123; OrderCount = 12; Balance = 59.10; City = "New York" }
+{ CustomerId = 123; OrderCount = 12; Balance = 59.10 }
 ```
-
----
-
-Customer Id | Name | Order Count | Balance | **City**
-| --- | --- | --- | ---| --- 
-| 2542685a-... | Joe Bloggs | 23 | ***{N/A}*** | ***{N/A}***
-| **123** | Sally Smith | 12 | 59.10 | ***{N/A}***
-| ad081c1b-... | ***{N/A}*** | 17 | 89.23 | **New York** 
-
 ---
 
 ### Blob Type System
 
-* *No* schema
-* No notion of rows / columns
-* Data stored as raw documents *e.g.*
+* *No* entity schema
+* No notion of rows or columns
+* Data stored as raw documents in a path *e.g.*
 
 <br>
 <br>
