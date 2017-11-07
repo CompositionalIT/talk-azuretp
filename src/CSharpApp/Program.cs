@@ -73,7 +73,6 @@ namespace CSharpApp
                 PrintTransaction(prop);
         }
 
-
         public static void BadQuery()
         {
             var badQuery = table.CreateQuery<Transaction>().Take(10);
@@ -103,7 +102,7 @@ namespace CSharpApp
 
             //Tables.BasicQuery();
             //Tables.BadQuery();
-            Tables.IQueryableQuery();
+            //Tables.IQueryableQuery();
         }
     }
 }

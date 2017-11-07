@@ -20,20 +20,22 @@ type Row =
       District : string
       County : string }
 
+let clean field = if field |> String.IsNullOrWhiteSpace then null else field
+
 let data =
     (PricePaid.GetSample()).Rows
     |> Seq.map(fun row ->
         let record =
             { TransactionId = row.TransactionId
               Price = row.Price
-              Date = DateTime.Parse row.Date
-              PostCode = row.Postcode
-              PropertyType = row.PropertyType
-              Locality = row.Locality
-              Town = row.``Town/City``
-              District = row.District
-              County = row.County }
-        let partition = Partition row.District
+              Date = (DateTime.Parse row.Date).ToUniversalTime().Date
+              PostCode = clean row.Postcode
+              PropertyType = clean row.PropertyType
+              Locality = clean row.Locality
+              Town = clean row.``Town/City``
+              District = clean row.District
+              County = clean row.County }
+        let partition = Partition (clean row.District)
         let row = Row (string row.TransactionId)
         partition, row, record)
     |> Seq.take 5000
@@ -41,4 +43,5 @@ let data =
 
 let resp = Storage.Tables.transactions.Insert data
 
-resp |> Array.filter(fst >> (=) "EAST LINDSEY")
+// Error handling
+Storage.Tables.transactions.Insert (data |> Seq.take 10)

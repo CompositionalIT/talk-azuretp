@@ -463,6 +463,24 @@ Customer Id | Name | Order Count | Balance | **City**
 
 ---
 
+### More type safety
+
+![](images/sdk-17.png)
+
+---
+
+### Code like this...
+
+![](images/sdk-18.png)
+
+---
+
+### Leads to messages like this...
+
+![](images/sdk-19.png)
+
+---
+
 ### The Pit of Success?
 
 ![](images/sdk-12.png)
@@ -491,12 +509,24 @@ Customer Id | Name | Order Count | Balance | **City**
 
 ---
 
+![](images/sdk-20.png)
+
+---
+
 ![](images/wtf.jpg)
 
 ---
 
-### Question:
-### How can F# improve this?
+## Question:
+## How can F# improve this?
+
+---
+
+## What is the Storage TP?
+
+---
+
+[<img src="images/sdk-21.png">](http://fsprojects.github.io/AzureStorageTypeProvider/)
 
 ---
 
