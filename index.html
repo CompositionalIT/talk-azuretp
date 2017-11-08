@@ -110,11 +110,17 @@
         <!-- Any section element inside of this container is displayed as a slide -->
         <div class="slides">
             <section >
-<h1>Taming Types in the Cloud</h1>
+<section >
+<p><img src="images/codemotion.png" alt="" /></p>
+</section>
+<section >
+<p><img src="images/codemotion-2.png" alt="" /></p>
+<p><a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">https://creativecommons.org/licenses/by-nc-sa/3.0/</a></p>
+</section>
 </section>
 <section >
 <section >
-<h2>About me</h2>
+<h2>About us</h2>
 </section>
 <section >
 <h3>I'm Isaac Abraham!</h3>
@@ -123,7 +129,7 @@
 <section >
 <h3>Other metadata...</h3>
 <ul>
-<li>.NET dev / contractor / consultant since .NET 1.0</li>
+<li>Working with .NET since 1.0</li>
 <li>Using F# for ~5 years</li>
 <li>Microsoft MVP (F# -&gt; .NET -&gt; Visual Studio -&gt; ?)</li>
 <li>Based in Fulda, Germany (and occasionally London, UK)</li>
@@ -434,12 +440,12 @@
 <p><img src="images/friends.jpg" alt="" /></p>
 </section>
 <section >
+<h3>F# runs on .NET!</h3>
+</section>
+<section >
 <a href="https://docs.microsoft.com/en-us/dotnet/fsharp/using-fsharp-on-azure/">
     <img src="images/azure-docs-1.png" style="width: 700px;"/>
 </a>
-</section>
-<section >
-<h3>F# runs on .NET!</h3>
 </section>
 <section >
 <table>
@@ -508,29 +514,65 @@
 </thead>
 <tbody>
 <tr class="odd">
-<td align="right"><p><strong>Type System</strong></p></td>
-<td align="center"><p>Strong</p></td>
-<td align="center"><p>Weak</p></td>
-</tr>
-<tr class="even">
-<td align="right"><p><strong>Query Language</strong></p></td>
-<td align="center"><p>Smart</p></td>
-<td align="center"><p>Dumb</p></td>
-</tr>
-<tr class="odd">
 <td align="right"><p><strong>Cost</strong></p></td>
 <td align="center"><p>High</p></td>
 <td align="center"><p>Low</p></td>
 </tr>
 <tr class="even">
-<td align="right"><p><strong>Scalability</strong></p></td>
-<td align="center"><p>Medium (*)</p></td>
-<td align="center"><p>Medium/High</p></td>
+<td align="right"><p><strong>Compute</strong></p></td>
+<td align="center"><p>Powerful</p></td>
+<td align="center"><p>Dumb</p></td>
 </tr>
 <tr class="odd">
-<td align="right"><p><strong>Performance</strong></p></td>
-<td align="center"><p>Scalable</p></td>
-<td align="center"><p>Fixed (*)</p></td>
+<td align="right"><p><strong>Scalability</strong></p></td>
+<td align="center"><p>Manual</p></td>
+<td align="center"><p>Automatic</p></td>
+</tr>
+</tbody>
+</table>
+
+</section>
+<section >
+<h3>Compute on Azure data services</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="right"></th>
+<th align="center"><p>SQL</p></th>
+<th align="center"><p>Tables</p></th>
+<th align="center"><p>Blobs</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right"><p><strong>Projection</strong></p></td>
+<td align="center"><p>Yes</p></td>
+<td align="center"><p>Yes</p></td>
+<td align="center"><p>No</p></td>
+</tr>
+<tr class="even">
+<td align="right"><p><strong>Filters</strong></p></td>
+<td align="center"><p>Yes</p></td>
+<td align="center"><p><em>Limited</em></p></td>
+<td align="center"><p>No</p></td>
+</tr>
+<tr class="odd">
+<td align="right"><p><strong>Joins</strong></p></td>
+<td align="center"><p>Yes</p></td>
+<td align="center"><p><em>No</em></p></td>
+<td align="center"><p>No</p></td>
+</tr>
+<tr class="even">
+<td align="right"><p><strong>Relationships</strong></p></td>
+<td align="center"><p>Yes</p></td>
+<td align="center"><p><em>No</em></p></td>
+<td align="center"><p>No</p></td>
+</tr>
+<tr class="odd">
+<td align="right"><p><strong>Indexes</strong></p></td>
+<td align="center"><p>Yes</p></td>
+<td align="center"><p><em>Limited</em></p></td>
+<td align="center"><p>Limited</p></td>
 </tr>
 </tbody>
 </table>
@@ -649,57 +691,14 @@
           "orderCount" : 23 }
 </code></pre></td></tr></table>
 </section>
-<section >
-<h3>Compute on Azure data services</h3>
-<table>
-<thead>
-<tr class="header">
-<th align="right"></th>
-<th align="center"><p>SQL</p></th>
-<th align="center"><p>Tables</p></th>
-<th align="center"><p>Blobs</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="right"><p><strong>Projection</strong></p></td>
-<td align="center"><p>Yes</p></td>
-<td align="center"><p>Yes</p></td>
-<td align="center"><p>No</p></td>
-</tr>
-<tr class="even">
-<td align="right"><p><strong>Filters</strong></p></td>
-<td align="center"><p>Yes</p></td>
-<td align="center"><p><em>Limited</em></p></td>
-<td align="center"><p>No</p></td>
-</tr>
-<tr class="odd">
-<td align="right"><p><strong>Joins</strong></p></td>
-<td align="center"><p>Yes</p></td>
-<td align="center"><p><em>No</em></p></td>
-<td align="center"><p>No</p></td>
-</tr>
-<tr class="even">
-<td align="right"><p><strong>Relationships</strong></p></td>
-<td align="center"><p>Yes</p></td>
-<td align="center"><p><em>No</em></p></td>
-<td align="center"><p>No</p></td>
-</tr>
-<tr class="odd">
-<td align="right"><p><strong>Indexes</strong></p></td>
-<td align="center"><p>Yes</p></td>
-<td align="center"><p><em>Limited</em></p></td>
-<td align="center"><p>Limited</p></td>
-</tr>
-</tbody>
-</table>
-
-</section>
 </section>
 <section >
 <section >
 <h2>DEVELOPERS!</h2>
 <p><img src="images/developers.jpg" alt="" /></p>
+</section>
+<section >
+<h2>Working with the Azure Storage SDK</h2>
 </section>
 <section >
 <h3>Typical tasks:</h3>
@@ -712,9 +711,6 @@
 </ul>
 </section>
 <section >
-<h2>Working with the Azure Storage SDK</h2>
-</section>
-<section >
 <h2>Working with Blobs</h2>
 </section>
 <section >
@@ -725,6 +721,9 @@
 </section>
 <section >
 <p><img src="images/sdk-2.png" alt="" /></p>
+</section>
+<section >
+<h3>Is this easy to explore data?</h3>
 </section>
 <section >
 <h3>Type safety?</h3>
