@@ -20,7 +20,7 @@ type Row =
       District : string
       County : string }
 
-let clean field = if field |> String.IsNullOrWhiteSpace then null else field
+let clean field = if String.IsNullOrWhiteSpace field then null else field
 
 let data =
     (PricePaid.GetSample()).Rows

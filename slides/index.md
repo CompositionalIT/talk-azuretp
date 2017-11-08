@@ -6,11 +6,18 @@
 
 ***
 
-# Taming Types in the Cloud
+![](images/codemotion.png)
+
+---
+
+![](images/codemotion-2.png)
+
+https://creativecommons.org/licenses/by-nc-sa/3.0/
+
 
 ***
 
-## About me
+## About us
 
 ---
 
@@ -22,7 +29,7 @@
 
 ### Other metadata...
 
-* .NET dev / contractor / consultant since .NET 1.0
+* Working with .NET since 1.0
 * Using F# for ~5 years
 * Microsoft MVP (F# -> .NET -> Visual Studio -> ?)
 * Based in Fulda, Germany (and occasionally London, UK)
@@ -248,13 +255,13 @@ y <- 20 // ok
 
 ---
 
-<a href="https://docs.microsoft.com/en-us/dotnet/fsharp/using-fsharp-on-azure/">
-    <img src="images/azure-docs-1.png" style="width: 700px;"/>
-</a>
+### F# runs on .NET!
 
 ---
 
-### F# runs on .NET!
+<a href="https://docs.microsoft.com/en-us/dotnet/fsharp/using-fsharp-on-azure/">
+    <img src="images/azure-docs-1.png" style="width: 700px;"/>
+</a>
 
 ---
 
@@ -297,11 +304,21 @@ Distributed | cloud { }
 
 | | SQL Azure | Azure Storage |
 |---:|:---:|:---:|
-**Type System** | Strong | Weak
-**Query Language** | Smart | Dumb
-**Cost** | High | Low 
-**Scalability** | Medium (*) | Medium/High
-**Performance** | Scalable | Fixed (*)
+| **Cost** | High | Low |
+| **Compute** | Powerful | Dumb |
+| **Scalability** | Manual | Automatic |
+
+---
+
+### Compute on Azure data services
+
+| | SQL | Tables | Blobs
+---:|:---:|:---:|:---:| 
+**Projection** | Yes | Yes | No
+**Filters** | Yes | *Limited* | No
+**Joins** | Yes | *No* | No
+**Relationships** | Yes | *No* | No
+**Indexes** | Yes | *Limited* | Limited
 
 ---
 
@@ -354,23 +371,16 @@ Customer Id | Name | Order Count | Balance
           "name" : "Joe Bloggs",
           "orderCount" : 23 }
 ```
----
-
-### Compute on Azure data services
-
-| | SQL | Tables | Blobs
----:|:---:|:---:|:---:| 
-**Projection** | Yes | Yes | No
-**Filters** | Yes | *Limited* | No
-**Joins** | Yes | *No* | No
-**Relationships** | Yes | *No* | No
-**Indexes** | Yes | *Limited* | Limited
 
 ***
 
 ## DEVELOPERS!
 
 ![](images/developers.jpg)
+
+---
+
+## Working with the Azure Storage SDK
 
 ---
 
@@ -381,10 +391,6 @@ Customer Id | Name | Order Count | Balance
 * What's the schema of this table?
 * What does the data in my table look like?
 * What's currently on a storage queue?
-
----
-
-## Working with the Azure Storage SDK
 
 ---
 
@@ -401,6 +407,10 @@ Customer Id | Name | Order Count | Balance
 ---
 
 ![](images/sdk-2.png)
+
+---
+
+### Is this easy to explore data?
 
 ---
 

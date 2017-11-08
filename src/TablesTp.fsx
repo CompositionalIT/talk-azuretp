@@ -1,15 +1,17 @@
-﻿#I @"..\packages\"
-#load @"FSharp.Azure.StorageTypeProvider\StorageTypeProvider.fsx"
-#r @"FSharp.Plotly\lib\net45\FSharp.Plotly.dll"
-
+﻿#load @"..\packages\FSharp.Azure.StorageTypeProvider\StorageTypeProvider.fsx"
 open FSharp.Azure.StorageTypeProvider
+open FSharp.Azure.StorageTypeProvider.Table
+
 type StorageAccount = AzureTypeProvider<"UseDevelopmentStorage=true">
 
 // Get table
-
-// Get results
+let table = StorageAccount.Tables.transactions
 
 // Get partition
+let p = table.GetPartition "ADUR"
+
+// Get results
+let txn = table.Get(Row "2ac10e50-3e2a-1af6-e050-a8c063052ba1", Partition "ADUR")
 
 // Optional inference
 
@@ -37,7 +39,8 @@ type StorageAccount = AzureTypeProvider<"UseDevelopmentStorage=true">
 
 
 // Analysis with charts
-//
+#r @"..\packages\FSharp.Plotly\lib\net45\FSharp.Plotly.dll"
+
 open FSharp.Plotly
 
 let transactions =
