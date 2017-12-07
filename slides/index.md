@@ -4,20 +4,11 @@
 - theme : night
 - transition : default
 
-***
-
-![](images/codemotion.png)
-
----
-
-![](images/codemotion-2.png)
-
-https://creativecommons.org/licenses/by-nc-sa/3.0/
-
+# Taming Types in the Cloud
 
 ***
 
-## About us
+## About me
 
 ---
 
@@ -31,7 +22,7 @@ https://creativecommons.org/licenses/by-nc-sa/3.0/
 
 * Working with .NET since 1.0
 * Using F# for ~5 years
-* Microsoft MVP (F# -> .NET -> Visual Studio -> ?)
+* Microsoft MVP
 * Based in Fulda, Germany (and occasionally London, UK)
 * Founder of Compositional IT
 
@@ -308,6 +299,10 @@ Distributed | cloud { }
 * Redis Cache
 * Data Lake
 * etc. etc.
+
+---
+
+<img src="images/costs.png" style="width: 600px;"/>
 
 ---
 
