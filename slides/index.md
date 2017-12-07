@@ -173,6 +173,11 @@ let webPageSize = async {
 
 ---
 
+### No nulls!
+![](images/null.png)
+
+---
+
 ### ACHTUNG!
 
 ![alt](images/horror.jpg)
@@ -262,6 +267,12 @@ y <- 20 // ok
 <a href="https://docs.microsoft.com/en-us/dotnet/fsharp/using-fsharp-on-azure/">
     <img src="images/azure-docs-1.png" style="width: 700px;"/>
 </a>
+
+---
+
+### Now with VS "cool demo mode" support!
+
+![](images/azurepublish.png)
 
 ---
 
