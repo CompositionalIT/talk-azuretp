@@ -1,8 +1,10 @@
 - title : Taming Types in the Cloud
 - description : Azure and F# with Type Providers
 - author : Isaac Abraham
-- theme : night
+- theme : light
 - transition : default
+
+*** 
 
 # Taming Types in the Cloud
 
