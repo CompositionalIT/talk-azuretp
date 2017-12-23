@@ -49,13 +49,15 @@ let transactions =
                         .``Where Price Is``.``Less Than``(500000)
                         .Execute(5000)
 
-let labels, values =
-   transactions
-   |> Array.groupBy(fun r -> r.County)
-   |> Array.map(fun (county, values) -> county, values |> Array.sumBy(fun v -> float v.Price))
-   |> Array.sortByDescending snd
-   |> Array.take 10
-   |> Array.unzip
 
-Chart.Pie(values, labels)
+
+
+transactions
+|> Array.countBy(fun r -> r.County)
+|> Array.sortByDescending snd
+|> Array.take 10
+|> Chart.Column
 |> Chart.Show
+
+
+

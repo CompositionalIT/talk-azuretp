@@ -1,7 +1,7 @@
 - title : Taming Types in the Cloud
 - description : Azure and F# with Type Providers
 - author : Isaac Abraham
-- theme : light
+- theme : sky
 - transition : default
 
 *** 
@@ -134,7 +134,9 @@ type Weather =
 let weather = Windy(North, 10.2<m/s>)
 
 let (|Low|Medium|High|) speed =
-    if speed > 10.<m/s> then High elif speed > 5<m/s>. then Medium else Low
+    if speed > 10.<m/s> then High
+    elif speed > 5<m/s>. then Medium
+    else Low
 ```
 ---
 
@@ -149,6 +151,14 @@ match weather with
 | Windy (South, _) -> "Blowing southwards"
 | Windy _ -> "It's windy!"
 ```
+
+---
+
+### Pipelines
+
+#### Show the most top ten most popular counties for house sales
+
+![](images/pipelines.png)
 
 ---
 
@@ -173,7 +183,7 @@ let webPageSize = async {
 
 ### ACHTUNG!
 
-![alt](images/horror.jpg)
+![](images/horror.jpg)
 
 ---
 
@@ -227,17 +237,8 @@ y <- 20 // ok
 * "Scale fast, fail fast" etc. 
 * Reduce time to market
 * Enable distributed applications
-
----
-
-* Deploying
-* Replication
 * Load balancing
-* Logging
-* Scale up
-* Scale out
-* Auth
-* Resiliency
+* etc. etc. etc.
 
 ---
 
@@ -304,6 +305,8 @@ Distributed | cloud { }
 
 ---
 
+### Comparing cost of data storage systems in Azure
+
 <img src="images/costs.png" style="width: 600px;"/>
 
 ---
@@ -358,13 +361,6 @@ Customer Id | Name | Order Count | Balance
 
 ---
 
-```fsharp
-{ CustomerId = "2542685a"; Name = "Joe"; OrderCount = 23 }
-{ CustomerId = 123; Name = "Sally"; OrderCount = 12; Balance = 59.10 }
-{ CustomerId = 123; OrderCount = 12; Balance = 59.10 }
-```
----
-
 ### Blob Type System
 
 * *No* entity schema
@@ -392,21 +388,13 @@ Customer Id | Name | Order Count | Balance
 
 ---
 
-### Typical tasks:
-
-* What's in my storage account?
-* What do the contents of this file look like?
-* What's the schema of this table?
-* What does the data in my table look like?
-* What's currently on a storage queue?
+### Typical challenges
 
 ---
 
-## Working with Blobs
+### 1. Data Exploration
 
----
-
-### Exploration of data?
+*List all containers and blobs in my storage account*
 
 ---
 
@@ -418,77 +406,119 @@ Customer Id | Name | Order Count | Balance
 
 ---
 
-### Is this easy to explore data?
+#### Inefficient
+#### Slow feedback loop
+#### Use an external tool?
 
 ---
 
-### Type safety?
+### 2. Mismatched types
 
-![](images/sdk-3.png)
-
----
-
-![](images/sdk-4.png)
+*Show me the first 10 rows in the Transactions table*
 
 ---
 
-![](images/sdk-5.png)
-
----
-
-![](images/sdk-6.png)
-
----
-
-## Working with Tables
-
----
-
-### Type Safety?
-
----
+#### Use an external tool to look at the data
 
 ![](images/sdk-7.png)
 
 ---
 
+#### Create a C# type to match
+
 ![](images/sdk-8.png)
 
 ---
+
+#### Write a query
 
 ![](images/sdk-9.png)
 
 ---
 
-![](images/sdk-10.png)
-
----
+#### Oops - wrong property name!
 
 ![](images/sdk-11.png)
 
 ---
 
-### More type safety
+#### No runtime error
+
+![](images/sdk-10.png)
+
+#### Just bad data
+
+---
+
+### 3. "Sometimes" missing data
+
+*Find all properties where Locality ends in "BOROUGH"*
+
+---
+
+#### Are these columns the same type?
 
 ![](images/sdk-17.png)
 
 ---
 
-### Code like this...
-
 ![](images/sdk-18.png)
 
 ---
 
-### Leads to messages like this...
+#### Runtime error
 
 ![](images/sdk-19.png)
 
+#### Depending on the row you read
+
 ---
 
-### The Pit of Success?
+### 4. Stringly typed data
+
+*Read the first ten lines of the blob `files/pp-2017.csv`*
+
+---
+
+#### Read blob into memory
+
+![](images/sdk-3.png)
+
+#### To do cool stuff
+
+---
+
+#### Misspelled container and blob names?
+
+![](images/sdk-4.png)
+
+---
+
+#### Runtime error...
+
+![](images/sdk-6.png)
+
+---
+
+#### ...in the "wrong" place
+
+![](images/sdk-5.png)
+
+---
+
+### 5. "Unusual" API design
+
+---
+
+#### Two ways to create a query?
 
 ![](images/sdk-12.png)
+
+---
+
+#### Make sure you pick the "good" one!
+
+![](images/sdk-14.png)
 
 ---
 
@@ -496,23 +526,27 @@ Customer Id | Name | Order Count | Balance
 
 ---
 
-![](images/sdk-14.png)
-
----
-
 ![](images/wtf.jpg)
 
 ---
 
-### Impedence mismatches
+### 6. Impedence mismatch
+
+---
+
+#### The Azure SDK supports LINQ!
 
 ![](images/sdk-15.png)
 
 ---
 
+#### .....
+
 ![](images/sdk-16.png)
 
 ---
+
+#### Make sure you only use the bits that work...
 
 ![](images/sdk-20.png)
 
@@ -527,7 +561,8 @@ Customer Id | Name | Order Count | Balance
 
 ---
 
-## What is the Storage TP?
+### 1. F# language features
+### 2. The Azure Storage Type Provider
 
 ---
 
@@ -543,14 +578,14 @@ Customer Id | Name | Order Count | Balance
 
 ---
 
-### Benefits of F# for data
+### F# + Type Provider + Azure = Happiness
 
 | | Before | After
 |-|:-:|:-:|
 | **Missing data** | Null | Option<T> |
-| **Error Handling** | Exceptions | Result<T> |
-| **Remote resources** | Stringly-typed | Type system |
-| **Schema** | Manually generated | Provided |
+| **Error Handling** | Runtime | Compile Time |
+| **Remote resources** | Stringly typed | Strongly typed |
+| **Schema** | Manual | Provided |
 | **Compile-time Queries** | Unsafe | Safe |
 
 ***
