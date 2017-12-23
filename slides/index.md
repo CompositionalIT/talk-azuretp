@@ -14,18 +14,10 @@
 
 ---
 
-### I'm Isaac Abraham!
-
-![](images/isaac.jpg)
-
----
-
-### Other metadata...
-
 * Working with .NET since 1.0
 * Using F# for ~5 years
 * Microsoft MVP
-* Based in Fulda, Germany (and occasionally London, UK)
+* Based in Fulda, Germany (and London, UK)
 * Founder of Compositional IT
 
 <br><br><br>
@@ -58,9 +50,13 @@
 
 ---
 
+#### The Mountain of Doom
+
 ![](images/POS-1.png)
 
 ---
+
+#### The Pit of Success
 
 ![](images/POS-2.png)
 
@@ -69,10 +65,10 @@
 | C# / VB .NET | F#
 |-:|:-
 | Mutable by default | Immutable by default
-| Side-effects and statements | Expressions
+| Side-effects + statements | Expressions
 | Classes | Functions as values
 | Inheritance | Composition
-| State | Separate data & functions
+| State | Data + pure functions
 | Polymorphism | Algebraic Data Types
 
 ---
@@ -156,7 +152,7 @@ match weather with
 
 ### Pipelines
 
-#### Show the most top ten most popular counties for house sales
+*Top ten most most popular counties for house sales*
 
 ![](images/pipelines.png)
 
@@ -273,8 +269,8 @@ y <- 20 // ok
 | Cloud Applications | F# |
 |:---:|:---:|
 Stateless | Immutable, Expressions
-Data-centric | Type Providers, Pattern Matching
-Fault tolerant | Powerful type system
+Data-centric | Pattern Matching, ADTs, TPs
+Fault tolerant | Powerful compiler
 Asynchronous | async { }
 Distributed | cloud { }
 
@@ -305,7 +301,7 @@ Distributed | cloud { }
 
 ---
 
-### Comparing cost of data storage systems in Azure
+### The cost of Azure data services
 
 <img src="images/costs.png" style="width: 600px;"/>
 
