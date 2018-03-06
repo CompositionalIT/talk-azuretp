@@ -14,6 +14,10 @@
 
 ---
 
+<img src="images/bible.jpg" style="width: 600px;"/>
+
+---
+
 * Working with .NET since 1.0
 * Using F# for ~5 years
 * Microsoft MVP
@@ -472,7 +476,7 @@ Customer Id | Name | Order Count | Balance
 
 ### 4. Stringly typed data
 
-*Read the first ten lines of the blob `files/pp-2017.csv`*
+*Read the first ten lines of the blob* ***files/pp-2017.csv***
 
 ---
 
@@ -574,13 +578,13 @@ Customer Id | Name | Order Count | Balance
 
 ---
 
-### F# + Type Provider + Azure = Happiness
+### Type Provider + Azure = Happiness
 
 | | Before | After
 |-|:-:|:-:|
-| **Missing data** | Null | Option<T> |
+| **Missing data** | Null | Option< T > |
 | **Error Handling** | Runtime | Compile Time |
-| **Remote resources** | Stringly typed | Strongly typed |
+| **Typing** | Stringly | Strongly |
 | **Schema** | Manual | Provided |
 | **Compile-time Queries** | Unsafe | Safe |
 
