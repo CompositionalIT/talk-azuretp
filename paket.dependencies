@@ -1,6 +1,6 @@
 source https://www.nuget.org/api/v2
 
-framework:net452
+framework:netstandard2.0
 redirects:force
 
 nuget FsReveal
@@ -8,5 +8,5 @@ nuget FAKE 4.28
 nuget Suave 1.1.2
 nuget FSharp.Azure.StorageTypeProvider
 nuget FSharp.Plotly
-nuget FSharp.Core 4.0.0.1
+nuget FSharp.Core
 nuget FSharp.Data

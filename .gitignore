@@ -200,3 +200,4 @@ obj/
 .vs/
 #Nuget packages folder
 /.paket/load/
+/.ionide/symbolCache.db

@@ -9,10 +9,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		src\Blobs.fsx = src\Blobs.fsx
 		src\BlobsTp.fsx = src\BlobsTp.fsx
+		src\HotLoading.fsx = src\HotLoading.fsx
+		src\Metrics.fsx = src\Metrics.fsx
+		src\TableSchema.json = src\TableSchema.json
 		src\TablesPrep.fsx = src\TablesPrep.fsx
 		src\TablesTp.fsx = src\TablesTp.fsx
-		src\TableSchema.json = src\TableSchema.json
-		src\HotLoading.fsx = src\HotLoading.fsx
 	EndProjectSection
 EndProject
 Global

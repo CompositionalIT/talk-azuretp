@@ -7,31 +7,38 @@ type StorageAccount = AzureTypeProvider<"UseDevelopmentStorage=true">
 // Get table
 let table = StorageAccount.Tables.transactions
 
+
 // Get partition
-let p = table.GetPartition "ADUR"
+let rows = table.GetPartition "ADUR"
+rows.[0]
+
+
+// Optional inference - with Locality
+rows.[0].District.EndsWith "Sea"
+
+
+
 
 // Get results
 let txn = table.Get(Row "2ac10e50-3e2a-1af6-e050-a8c063052ba1", Partition "ADUR")
 
-// Optional inference
+
+
+
 
 // Queries
+let results =
+    table.Query()
+         .``Where Locality Is``.``Equal To``("SOUTHWICK")
+         .``Where Price Is``.``Greater Than``(500000)
+         .Execute()
+
+results.Length
 
 // Static schema
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+[<Literal>]
+let Schema = __SOURCE_DIRECTORY__ + @"\TableSchema.json"
+type StaticAccount = AzureTypeProvider<"UseDevelopmentStorage=true", tableSchema = Schema>
 
 
 
